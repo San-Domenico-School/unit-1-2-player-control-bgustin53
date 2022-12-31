@@ -2,17 +2,9 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-/********************************************
- * Component of the Vehicle, takes in user
- * input to move and thurn the vehicle
- * 
- * Bruce Gustin
- * December 28, 2022 Version 1
- *******************************************/
-
-public class PlayerController : MonoBehaviour
+public class NewBehaviourScript : MonoBehaviour
 {
-    
+
     private float speed;            // holds the forward movement of the vehicle
     private float turnSpeed;        // holds the turn speed of the vehicle
     private float moveInput;        // gets a value [-1, 1] from vertical input manager
@@ -37,6 +29,7 @@ public class PlayerController : MonoBehaviour
     {
         transform.Translate(Vector3.forward * Time.deltaTime * speed * moveInput);
         transform.Rotate(Vector3.up * Time.deltaTime * turnSpeed * turnInput);
+        transform.Rotate(Vector3.back * Time.deltaTime * turnSpeed * turnInput);
     }
 
     // Sets move and turn inputs from default Input Manager
